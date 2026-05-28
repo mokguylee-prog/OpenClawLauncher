@@ -1,0 +1,44 @@
+{
+    "configurations": [
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:OpenLauncher}",
+            "name": "Debug OpenLauncher",
+            "target": "OpenLauncher",
+            "configuration": "debug",
+            "preLaunchTask": "swift: Build Debug OpenLauncher"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:OpenLauncher}",
+            "name": "Release OpenLauncher",
+            "target": "OpenLauncher",
+            "configuration": "release",
+            "preLaunchTask": "swift: Build Release OpenLauncher"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:OpenLauncher}",
+            "name": "Debug OpenClawLauncher",
+            "target": "OpenClawLauncher",
+            "configuration": "debug",
+            "preLaunchTask": "swift: Build Debug OpenClawLauncher"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:OpenLauncher}",
+            "name": "Release OpenClawLauncher",
+            "target": "OpenClawLauncher",
+            "configuration": "release",
+            "preLaunchTask": "swift: Build Release OpenClawLauncher"
+        }
+    ]
+}
