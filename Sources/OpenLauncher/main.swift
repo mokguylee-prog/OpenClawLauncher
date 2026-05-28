@@ -322,6 +322,10 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
         menu.addItem(NSMenuItem.separator())
 
+        let reconnectItem = NSMenuItem(title: "Reconnect OpenClaw Account…", action: #selector(reconnectAccount), keyEquivalent: "")
+        reconnectItem.target = self
+        menu.addItem(reconnectItem)
+
         let helpItem = NSMenuItem(title: "About / Help…", action: #selector(showHelp), keyEquivalent: "")
         helpItem.target = self
         menu.addItem(helpItem)
@@ -546,6 +550,22 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     private func copyGatewayURL() {
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString(gatewayURLString, forType: .string)
+    }
+
+    @objc private func reconnectAccount() {
+        let tempPath = NSTemporaryDirectory() + "openclaw_reconnect.command"
+        let content = """
+        #!/bin/bash
+        export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/bin:/usr/local/sbin
+        echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+        echo "  OpenClaw Codex 계정 재연결"
+        echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+        echo ""
+        openclaw configure --section model
+        """
+        try? content.write(toFile: tempPath, atomically: true, encoding: .utf8)
+        try? FileManager.default.setAttributes([.posixPermissions: 0o755], ofItemAtPath: tempPath)
+        NSWorkspace.shared.open(URL(fileURLWithPath: tempPath))
     }
 
     private func openDashboardInTerminal() {
