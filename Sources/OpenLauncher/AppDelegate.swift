@@ -6,7 +6,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     let menuWidth: CGFloat  = 300
     let gatewayHost         = "127.0.0.1"
     let gatewayPort         = 18789
-    let version             = "V0.3 (2026.05.28)"
+    let version             = "V0.5 (2026.05.30)"
     let pathEnvironment     = ["PATH": "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/bin:/usr/local/sbin"]
 
     var gatewayURLString: String { "http://\(gatewayHost):\(gatewayPort)" }
